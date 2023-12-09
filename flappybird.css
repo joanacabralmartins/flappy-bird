@@ -7,3 +7,36 @@ body {
   /* background-color: skyblue; */
   background-image: url("./assets/flappybirdbg.png");
 }
+
+#overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  display: none;
+  border: 2px solid #000000; 
+}
+
+#valor-entrada {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+#iniciar-jogo {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#iniciar-jogo:hover {
+  background-color: #45a049;
+}

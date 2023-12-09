@@ -48,6 +48,27 @@ window.onload = function () {
 
     // Obtém o contexto de desenho 2D do tabuleiro
     contexto = tabuleiro.getContext("2d"); // Usado para desenhar no tabuleiro
+    
+    valorEntradaInput = document.getElementById("valor-entrada");
+
+    document.getElementById("iniciar-jogo").addEventListener("click", function () {
+        iniciarJogo();
+    });
+
+    document.getElementById("overlay").style.display = "block";
+}
+
+function iniciarJogo() {
+    valorEntrada = parseFloat(valorEntradaInput.value);
+
+    if (isNaN(valorEntrada) || valorEntrada <= 0) {
+        alert("Por favor, insira um valor válido para iniciar o jogo.");
+        valorEntradaInput.value = "";
+        return;
+    }
+
+    document.getElementById("overlay").style.display = "none"; // oculta o overlay 
+    pontuacao = valorEntrada;
 
     // Desenha a imagem do pássaro no tabuleiro quando ela é carregada
     imagemPassaro = new Image(); //Construtor padrão para criar objetos de imagem
@@ -55,7 +76,6 @@ window.onload = function () {
     imagemPassaro.onload = function () {
         contexto.drawImage(imagemPassaro, passaro.x, passaro.y, passaro.largura, passaro.altura);
     }
-
 
     // Carrega a imagem do cano superior
     imagemCanoSuperior = new Image();
@@ -73,7 +93,6 @@ window.onload = function () {
 
     // Adiciona um ouvinte de evento para responder às teclas pressionadas
     document.addEventListener("keydown", moverPassaro);
-
 }
 
 function moverPassaro(evento) {
@@ -138,9 +157,6 @@ function atualizar() {
     contexto.fillStyle = "white";
     contexto.font = "45px sans-serif";
     contexto.fillText(pontuacao, 5, 45);
-
-
-
 }
 
 function gerarCanos() {
