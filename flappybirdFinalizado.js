@@ -119,7 +119,7 @@ function atualizar() {
     requestAnimationFrame(atualizar);
 
     if (jogoEncerrado) {
-        contexto.fillText("FIM DE JOGO", 50, 60);
+        contexto.fillText("FIM DE JOGO", 50, 200);
         return;
     }
 
@@ -166,7 +166,7 @@ function atualizar() {
     // Pontuação
     contexto.fillStyle = "white";
     contexto.font = "45px sans-serif";
-    contexto.fillText(pontuacao, 5, 45);
+    contexto.fillText(`R$ ${pontuacao.toFixed(2)}`, 5, 45);
 }
 
 function gerarCanos() {
