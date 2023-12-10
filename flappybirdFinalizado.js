@@ -68,11 +68,14 @@ function iniciarJogo() {
         return;
     }
 
-    if (valorEntrada > 80) {
+    if (valorEntrada >= 80) {
         velocidadeX = -4; 
 
-        if (valorEntrada > 150) {
+        if (valorEntrada >= 150) {
             delayPulo = 150; 
+        }
+        if (valorEntrada >= 200) {
+            velocidadeX = -8;
         }
     }
 
