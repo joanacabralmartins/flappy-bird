@@ -33,6 +33,7 @@ let imagemCanoInferior; // Imagem do cano inferior a ser carregada
 let velocidadeX = -2; // Velocidade de movimento dos canos para a esquerda
 let velocidadeY = 0; // Velocidade de salto do pássaro
 let gravidade = 0.4; // Gravidade aplicada ao pássaro
+let delayPulo = 0;
 
 let jogoEncerrado = false; // Indica se o jogo está encerrado
 let pontuacao = 0; // Pontuação do jogador
@@ -67,6 +68,14 @@ function iniciarJogo() {
         return;
     }
 
+    if (valorEntrada > 80) {
+        velocidadeX = -4; 
+
+        if (valorEntrada > 150) {
+            delayPulo = 150; 
+        }
+    }
+
     document.getElementById("overlay").style.display = "none"; // oculta o overlay 
     pontuacao = valorEntrada;
 
@@ -99,8 +108,9 @@ function moverPassaro(evento) {
     // Verifica se a tecla pressionada é a barra de espaço, seta para cima ou tecla X
     if (evento.code == "Space" || evento.code == "ArrowUp" || evento.code == "KeyX") {
         // Ajusta a velocidade vertical para simular um salto
-        velocidadeY = -6;
-
+        setTimeout(function () {
+            velocidadeY = -6;
+        }, delayPulo);
     }
 }
 
