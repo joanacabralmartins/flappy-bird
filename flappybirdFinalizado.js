@@ -123,6 +123,8 @@ function atualizar() {
 
     if (jogoEncerrado) {
         contexto.fillText("FIM DE JOGO", 50, 200);
+        contexto.fillText("Você ganhou:", 50, 300);
+        contexto.fillText("R$ " + pontuacao, 50, 350);
         return;
     }
 
