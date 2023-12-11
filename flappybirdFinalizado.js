@@ -128,6 +128,10 @@ function atualizar() {
         return;
     }
 
+    if (passaro.y + passaro.altura >= alturaTabuleiro) {
+        jogoEncerrado = true; // Marca que o jogo está encerrado se o pássaro atingir o chão
+    }
+
     // Limpa a área do tabuleiro para desenhar a próxima moldura
     contexto.clearRect(0, 0, tabuleiro.width, tabuleiro.height);
 
